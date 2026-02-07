@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>UC Davis READ Tank 1 interior</title>
+    <meta name="description" content="READ T1 scene">
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
+  </head>
+  
+  <body>
+    
+    
+    <a-scene background="color: #FAFAFA" cursor="rayOrigin: mouse">
+      <a-sky color="#FAFAFA"></a-sky>
+      <a-light intensity="0.9" type="ambient" color="#FAFAFA"></a-light>
+      <a-light type="directional" intensity="0.4" color="#FAFAFA" position="5 3 1"></a-light>
+      
+     <a-assets>
+      <a-asset-item id="gltf" src="https://cdn.glitch.com/6cfa63a0-490c-4c2b-8cee-c79906bdac94%2FREADT1interior10.glb"></a-asset-item>
+       <a-asset-item id="mixer" src="https://cdn.glitch.com/6cfa63a0-490c-4c2b-8cee-c79906bdac94%2Fmixer03.glb"></a-asset-item>
+       
+     <a-asset-item id="navmesh" src="https://cdn.glitch.com/6cfa63a0-490c-4c2b-8cee-c79906bdac94%2FREADnavmesh.glb"></a-asset-item>
+      
+       
+       
+      </a-assets>
+      
+      
+        <a-entity id="object1" gltf-model="#gltf" scale="0.3 0.3 0.3" position="-0.5 2.2 -3.5"></a-entity>
+       <a-entity id="object2" gltf-model="#mixer" scale="0.3 0.3 0.3" position="-0.5 2.2 -3.5" animation="property: rotation; to: 0 -360 0; loop: true; dur: 5000; easing: linear"></a-entity>
+      
+   
+      
+      
+      
+      
+      
+    
+      
+      
+      
+    
+      <!-- Floor, walls and navigation mesh -->
+     <a-entity gltf-model="#navmesh" scale="0.3 0.3 0.3" position="-0.5 2.2 -3.5" visible="false" nav-mesh></a-entity>
+      
+      
+      <!--Player rig-->
+      <a-entity id="rig" movement-controls="speed: 0.08; constrainToNavMesh: true">
+          <a-entity camera position="0 1.6 0" look-controls>
+        
+        </a-entity>
+        <a-entity oculus-go-controls></a-entity>
+      <a-entity laser-controls="hand: right"></a-entity>
+        
+      </a-entity>
+      
+      
+
+    </a-scene>
+  </body>
+</html>
